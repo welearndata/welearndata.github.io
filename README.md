@@ -4,8 +4,7 @@ Ini adalah repositori untuk kode sumber landing page produk "Expense Tracker V.1
 
 **🚀 [Lihat Live Demo](https://welearndata.github.io/) 🚀**
 
-![Screenshot Landing Page](https://i.imgur.com/your-screenshot-url.png) 
-*(Tips: Ambil screenshot halaman Anda dan unggah ke imgur.com atau langsung ke GitHub issue untuk mendapatkan URL)*
+![image](https://github.com/user-attachments/assets/de3669aa-5468-46a0-b85a-bec8508862d2)
 
 ---
 
