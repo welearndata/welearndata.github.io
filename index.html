@@ -7,167 +7,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
-    <style>
-        /* CSS Reset & Basic Styling */
-        :root {
-            --bg-color: #F8F9FA;
-            --text-color: #212529;
-            --primary-color: #28A745; /* Hijau Sukses */
-            --secondary-color: #007BFF; /* Biru Kepercayaan */
-            --danger-color: #DC3545; /* Merah Mendesak */
-            --light-gray: #E9ECEF;
-        }
-        body {
-            font-family: 'Poppins', sans-serif;
-            margin: 0;
-            background-color: var(--bg-color);
-            color: var(--text-color);
-            line-height: 1.6;
-        }
-        .container {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-        /* Section Styling */
-        section {
-            padding: 60px 20px;
-            text-align: center;
-        }
-        section.hero {
-            padding-top: 80px;
-        }
-        /* Typography */
-        h1 {
-            font-size: 2.8rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            line-height: 1.2;
-        }
-        h2 {
-            font-size: 2.2rem;
-            font-weight: 700;
-            margin-bottom: 2rem;
-            color: var(--secondary-color);
-        }
-        p {
-            font-size: 1.1rem;
-            margin-bottom: 1rem;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-        .highlight {
-            color: var(--primary-color);
-            font-weight: 700;
-        }
-        /* Button CTA */
-        .cta-button {
-            display: inline-block;
-            background-color: var(--primary-color);
-            color: #fff;
-            padding: 15px 35px;
-            font-size: 1.2rem;
-            font-weight: 600;
-            text-decoration: none;
-            border-radius: 50px;
-            transition: transform 0.2s, box-shadow 0.2s;
-            box-shadow: 0 4px 15px rgba(40, 167, 69, 0.4);
-        }
-        .cta-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 6px 20px rgba(40, 167, 69, 0.6);
-        }
-        .sub-cta {
-            margin-top: 10px;
-            font-size: 0.9rem;
-            opacity: 0.8;
-        }
-        /* Features Section */
-        .features-grid {
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            flex-wrap: wrap;
-            margin-top: 40px;
-        }
-        .feature-item {
-            background: #fff;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
-            width: 250px;
-            flex-grow: 1;
-        }
-        .feature-item svg {
-            width: 50px;
-            height: 50px;
-            color: var(--secondary-color);
-            margin-bottom: 15px;
-        }
-        .feature-item h3 {
-            font-size: 1.4rem;
-            margin-bottom: 10px;
-        }
-        /* Testimonial Section */
-        .testimonial {
-            background: var(--light-gray);
-            border-radius: 10px;
-            padding: 30px;
-            max-width: 600px;
-            margin: 20px auto;
-            font-style: italic;
-        }
-        .stars {
-            color: #F39C12;
-            font-size: 1.5rem;
-            margin-bottom: 10px;
-        }
-        /* Urgency/FOMO Section */
-        .urgency-box {
-            background-color: #fff;
-            border: 2px dashed var(--danger-color);
-            padding: 40px;
-            border-radius: 10px;
-            max-width: 700px;
-            margin: 0 auto;
-        }
-        .price {
-            margin: 20px 0;
-        }
-        .old-price {
-            text-decoration: line-through;
-            font-size: 1.5rem;
-            opacity: 0.6;
-        }
-        .new-price {
-            font-size: 3rem;
-            font-weight: 700;
-            color: var(--primary-color);
-        }
-        #countdown-timer {
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: var(--danger-color);
-            margin-top: 10px;
-        }
-        /* Footer */
-        footer {
-            background-color: var(--text-color);
-            color: var(--bg-color);
-            text-align: center;
-            padding: 20px;
-            margin-top: 40px;
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            h1 { font-size: 2.2rem; }
-            h2 { font-size: 1.8rem; }
-            .container { padding: 15px; }
-            section { padding: 40px 15px; }
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
@@ -185,10 +25,10 @@
             <h2>Apakah Anda Merasakan Ini?</h2>
             <p>Jika Anda mengangguk pada salah satu poin di bawah, Anda berada di tempat yang tepat.</p>
             <div class="features-grid" style="text-align: left; max-width: 500px; margin: 40px auto 0;">
-                <p>✔️ Bingung akhir bulan uang habis untuk apa saja.</p>
-                <p>✔️ Merasa boros tapi tidak tahu di pos mana.</p>
-                <p>✔️ Gagal menabung karena selalu ada "kebutuhan mendadak".</p>
-                <p>✔️ Cemas setiap kali melihat "tanggal tua" di kalender.</p>
+                <br>✔️ Bingung akhir bulan uang habis untuk apa saja.</br>
+                <br>✔️ Merasa boros tapi tidak tahu di pos mana.</br>
+                <br>✔️ Gagal menabung karena selalu ada "kebutuhan mendadak".</br>
+                <br>✔️ Cemas setiap kali melihat "tanggal tua" di kalender.</br>
             </div>
         </div>
     </section>
@@ -197,6 +37,19 @@
         <div class="container">
             <h2>Memperkenalkan: <span class="highlight">Expense Tracker V.1</span></h2>
             <p>Sebuah spreadsheet simpel namun *powerful* yang dirancang untuk memberikan Anda kendali penuh atas keuangan tanpa perlu pusing dengan aplikasi rumit.</p>
+
+            <div class="slider-container">
+                <div class="slider">
+                    <div class="slide"><img src="images/1.jpg" alt="Preview Aplikasi 1"></div>
+                    <div class="slide"><img src="images/2.jpg" alt="Preview Aplikasi 2"></div>
+                    <div class="slide"><img src="images/3.jpg" alt="Preview Aplikasi 3"></div>
+                    <div class="slide"><img src="images/4.jpg" alt="Preview Aplikasi 4"></div>
+                    <div class="slide"><img src="images/5.jpg" alt="Preview Aplikasi 5"></div>
+                    <div class="slide"><img src="images/6.jpg" alt="Preview Aplikasi 6"></div>
+                </div>
+                <button class="prev-btn">❮</button>
+                <button class="next-btn">❯</button>
+            </div>
             <div class="features-grid">
                 <div class="feature-item">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0h18M-7.5 12h1.5m3 0h1.5m3 0h1.5m-7.5 4.5h1.5m3 0h1.5m3 0h1.5m-10.5-8.25h1.5m3 0h1.5m3 0h1.5M12 15h.008v.008H12V15Z" /></svg>
@@ -217,17 +70,6 @@
         </div>
     </section>
 
-    <section style="background-color: #fff;">
-        <div class="container">
-            <h2>Dipercaya oleh Mahasiswa, Freelancer, dan Karyawan</h2>
-            <div class="testimonial">
-                <div class="stars">★★★★★</div>
-                <p>"Awalnya iseng beli, ternyata ngebantu banget. Akhirnya sadar ternyata pengeluaran terbesar ada di kopi dan jajan sore. Spreadsheet ini membuka mata banget! Simpel tapi ngena."</p>
-                <strong>- Rian, Karyawan Swasta (28 thn)</strong>
-            </div>
-        </div>
-    </section>
-    
     <section>
         <div class="container">
             <div class="urgency-box">
@@ -250,26 +92,6 @@
         </div>
     </footer>
 
-    <script>
-        // Set tanggal akhir penawaran (misal: 24 jam dari sekarang)
-        const countdownDate = new Date().getTime() + (24 * 60 * 60 * 1000);
-
-        const countdownFunction = setInterval(function() {
-            const now = new Date().getTime();
-            const distance = countdownDate - now;
-
-            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-            document.getElementById("countdown-timer").innerHTML = hours + " Jam " + minutes + " Menit " + seconds + " Detik ";
-
-            if (distance < 0) {
-                clearInterval(countdownFunction);
-                document.getElementById("countdown-timer").innerHTML = "PENAWARAN BERAKHIR";
-            }
-        }, 1000);
-    </script>
-
+    <script src="script.js"></script>
 </body>
 </html>
