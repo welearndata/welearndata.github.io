@@ -1,0 +1,205 @@
+/* CSS Reset & Basic Styling */
+:root {
+    --bg-color: #F8F9FA;
+    --text-color: #212529;
+    --primary-color: #28A745; /* Hijau Sukses */
+    --secondary-color: #007BFF; /* Biru Kepercayaan */
+    --danger-color: #DC3545; /* Merah Mendesak */
+    --light-gray: #E9ECEF;
+}
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.6;
+}
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+}
+/* Section Styling */
+section {
+    padding: 60px 20px;
+    text-align: center;
+}
+section.hero {
+    padding-top: 80px;
+}
+/* Typography */
+h1 {
+    font-size: 2.8rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    line-height: 1.2;
+}
+h2 {
+    font-size: 2.2rem;
+    font-weight: 700;
+    margin-bottom: 2rem;
+    color: var(--secondary-color);
+}
+p {
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.highlight {
+    color: var(--primary-color);
+    font-weight: 700;
+}
+/* Button CTA */
+.cta-button {
+    display: inline-block;
+    background-color: var(--primary-color);
+    color: #fff;
+    padding: 15px 35px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: 50px;
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 4px 15px rgba(40, 167, 69, 0.4);
+}
+.cta-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(40, 167, 69, 0.6);
+}
+.sub-cta {
+    margin-top: 10px;
+    font-size: 0.9rem;
+    opacity: 0.8;
+}
+/* Features Section */
+.features-grid {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+    margin-top: 40px;
+}
+.feature-item {
+    background: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+    width: 250px;
+    flex-grow: 1;
+}
+.feature-item svg {
+    width: 50px;
+    height: 50px;
+    color: var(--secondary-color);
+    margin-bottom: 15px;
+}
+.feature-item h3 {
+    font-size: 1.4rem;
+    margin-bottom: 10px;
+}
+/* Testimonial Section */
+.testimonial {
+    background: var(--light-gray);
+    border-radius: 10px;
+    padding: 30px;
+    max-width: 600px;
+    margin: 20px auto;
+    font-style: italic;
+}
+.stars {
+    color: #F39C12;
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+/* Urgency/FOMO Section */
+.urgency-box {
+    background-color: #fff;
+    border: 2px dashed var(--danger-color);
+    padding: 40px;
+    border-radius: 10px;
+    max-width: 700px;
+    margin: 0 auto;
+}
+.price {
+    margin: 20px 0;
+}
+.old-price {
+    text-decoration: line-through;
+    font-size: 1.5rem;
+    opacity: 0.6;
+}
+.new-price {
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--primary-color);
+}
+#countdown-timer {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--danger-color);
+    margin-top: 10px;
+}
+/* Footer */
+footer {
+    background-color: var(--text-color);
+    color: var(--bg-color);
+    text-align: center;
+    padding: 20px;
+    margin-top: 40px;
+}
+
+/* ===== CSS UNTUK SLIDER GAMBAR ===== */
+.slider-container {
+    position: relative;
+    max-width: 800px;
+    margin: 40px auto;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+}
+.slider {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+.slide {
+    min-width: 100%;
+    box-sizing: border-box;
+}
+.slide img {
+    width: 100%;
+    display: block;
+}
+.prev-btn, .next-btn {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    font-size: 18px;
+    border-radius: 50%;
+    user-select: none;
+    transition: background-color 0.2s;
+}
+.prev-btn:hover, .next-btn:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+.prev-btn {
+    left: 10px;
+}
+.next-btn {
+    right: 10px;
+}
+/* ===================================== */
+
+/* Responsive */
+@media (max-width: 768px) {
+    h1 { font-size: 2.2rem; }
+    h2 { font-size: 1.8rem; }
+    .container { padding: 15px; }
+    section { padding: 40px 15px; }
+}
