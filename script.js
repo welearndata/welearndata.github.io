@@ -1,88 +1,141 @@
-// ====== FUNGSI COUNTDOWN TIMER ======
-// Set tanggal akhir penawaran (misal: 24 jam dari sekarang)
-const countdownDate = new Date().getTime() + (24 * 60 * 60 * 1000);
+// script.js (SUDAH DIPERBAIKI & DITAMBAH)
+document.addEventListener('DOMContentLoaded', function() {
 
-const countdownFunction = setInterval(function() {
-    const now = new Date().getTime();
-    const distance = countdownDate - now;
+    // =============================
+    // BAGIAN FUNGSI COUNTDOWN TIMER
+    // =============================
+    const countdownDate = new Date().getTime() + (24 * 60 * 60 * 1000);
+    const countdownFunction = setInterval(function() {
+        const now = new Date().getTime();
+        const distance = countdownDate - now;
+        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+        const timerElement = document.getElementById("countdown-timer");
+        if (timerElement) {
+            timerElement.innerHTML = hours + " Jam " + minutes + " Menit " + seconds + " Detik ";
+            if (distance < 0) {
+                clearInterval(countdownFunction);
+                timerElement.innerHTML = "PENAWARAN BERAKHIR";
+            }
+        }
+    }, 1000);
 
-    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-    const timerElement = document.getElementById("countdown-timer");
-    if (timerElement) {
-        timerElement.innerHTML = hours + " Jam " + minutes + " Menit " + seconds + " Detik ";
-
-        if (distance < 0) {
-            clearInterval(countdownFunction);
-            timerElement.innerHTML = "PENAWARAN BERAKHIR";
+    // ===========================================
+    // BAGIAN FUNGSI SLIDER GAMBAR
+    // ===========================================
+    const sliderContainer = document.querySelector('.slider-container');
+    if (sliderContainer) {
+        const slider = sliderContainer.querySelector('.slider');
+        const slides = sliderContainer.querySelectorAll('.slide');
+        const prevBtn = sliderContainer.querySelector('.prev-btn');
+        const nextBtn = sliderContainer.querySelector('.next-btn');
+        if (slides.length > 0) {
+            let currentIndex = 0;
+            const slideCount = slides.length;
+            let autoSlideInterval;
+            function updateSlidePosition() {
+                slider.style.transform = 'translateX(' + (-slider.clientWidth * currentIndex) + 'px)';
+            }
+            function goToNextSlide() {
+                currentIndex = (currentIndex + 1) % slideCount;
+                updateSlidePosition();
+            }
+            function startAutoSlide() {
+                autoSlideInterval = setInterval(goToNextSlide, 5000);
+            }
+            function resetAutoSlide() {
+                clearInterval(autoSlideInterval);
+                startAutoSlide();
+            }
+            nextBtn.addEventListener('click', () => {
+                goToNextSlide();
+                resetAutoSlide();
+            });
+            prevBtn.addEventListener('click', () => {
+                currentIndex = (currentIndex - 1 + slideCount) % slideCount;
+                updateSlidePosition();
+                resetAutoSlide();
+            });
+            window.addEventListener('resize', () => {
+                slider.style.transition = 'none';
+                updateSlidePosition();
+                setTimeout(() => {
+                    slider.style.transition = 'transform 0.5s ease-in-out';
+                });
+            });
+            updateSlidePosition();
+            startAutoSlide();
         }
     }
-}, 1000);
 
+    // ========================================================
+    // BAGIAN BARU: FUNGSI SLIDER TESTIMONI DENGAN AUTO-SLIDE
+    // ========================================================
+    const testimonialContainer = document.querySelector('.testimonial-slider-container');
+    if (testimonialContainer) {
+        const testimonialSlider = testimonialContainer.querySelector('.testimonial-slider');
+        const testimonials = testimonialContainer.querySelectorAll('.testimonial-card');
+        const testimonialPrevBtn = testimonialContainer.querySelector('.testimonial-prev-btn');
+        const testimonialNextBtn = testimonialContainer.querySelector('.testimonial-next-btn');
+        const dotsContainer = testimonialContainer.querySelector('.testimonial-dots');
 
-// ====== FUNGSI SLIDER GAMBAR DENGAN AUTO-SLIDE ======
-document.addEventListener('DOMContentLoaded', function() {
-    const sliderContainer = document.querySelector('.slider-container');
-    const slider = document.querySelector('.slider');
-    const slides = document.querySelectorAll('.slide');
-    const prevBtn = document.querySelector('.prev-btn');
-    const nextBtn = document.querySelector('.next-btn');
+        if (testimonials.length > 0) {
+            let testimonialCurrentIndex = 0;
+            const testimonialCount = testimonials.length;
+            let testimonialAutoSlide;
 
-    // Cek apakah elemen slider ada di halaman
-    if (sliderContainer && slides.length > 0) {
-        let currentIndex = 0;
-        const slideCount = slides.length;
-        let autoSlideInterval; // Variabel untuk menyimpan interval
+            // Buat dots
+            for (let i = 0; i < testimonialCount; i++) {
+                const dot = document.createElement('span');
+                dot.classList.add('testimonial-dot');
+                dot.addEventListener('click', () => {
+                    goToTestimonial(i);
+                    resetTestimonialAutoSlide();
+                });
+                dotsContainer.appendChild(dot);
+            }
+            const dots = dotsContainer.querySelectorAll('.testimonial-dot');
 
-        // Fungsi untuk menggeser slider ke posisi yang benar
-        function updateSlidePosition() {
-            const slideWidth = sliderContainer.clientWidth; // Gunakan lebar container agar responsif
-            slider.style.transform = 'translateX(' + (-slideWidth * currentIndex) + 'px)';
-        }
-        
-        // Fungsi untuk pindah ke slide berikutnya
-        function goToNextSlide() {
-            currentIndex = (currentIndex + 1) % slideCount;
-            updateSlidePosition();
-        }
+            function updateTestimonialPosition() {
+                testimonialSlider.style.transform = 'translateX(' + (-testimonialSlider.clientWidth * testimonialCurrentIndex) + 'px)';
+                dots.forEach(dot => dot.classList.remove('active'));
+                dots[testimonialCurrentIndex].classList.add('active');
+            }
+            
+            function goToTestimonial(index) {
+                testimonialCurrentIndex = index;
+                updateTestimonialPosition();
+            }
 
-        // Fungsi untuk memulai auto-slide setiap 5 detik
-        function startAutoSlide() {
-            autoSlideInterval = setInterval(goToNextSlide, 5000); // 5000 milidetik = 5 detik
-        }
+            function goToNextTestimonial() {
+                testimonialCurrentIndex = (testimonialCurrentIndex + 1) % testimonialCount;
+                updateTestimonialPosition();
+            }
 
-        // Fungsi untuk mereset timer (dijalankan saat tombol ditekan)
-        function resetAutoSlide() {
-            clearInterval(autoSlideInterval); // Hentikan timer yang sedang berjalan
-            startAutoSlide(); // Mulai timer baru
-        }
+            function startTestimonialAutoSlide() {
+                testimonialAutoSlide = setInterval(goToNextTestimonial, 5000); // Ganti 5000 (5 detik) jika perlu
+            }
 
-        // Event listener untuk tombol 'Next'
-        nextBtn.addEventListener('click', () => {
-            goToNextSlide();
-            resetAutoSlide(); // Reset timer saat tombol ditekan
-        });
+            function resetTestimonialAutoSlide() {
+                clearInterval(testimonialAutoSlide);
+                startTestimonialAutoSlide();
+            }
 
-        // Event listener untuk tombol 'Previous'
-        prevBtn.addEventListener('click', () => {
-            currentIndex = (currentIndex - 1 + slideCount) % slideCount;
-            updateSlidePosition();
-            resetAutoSlide(); // Reset timer saat tombol ditekan
-        });
-        
-        // Menyesuaikan slider saat ukuran window berubah
-        window.addEventListener('resize', () => {
-            slider.style.transition = 'none'; // Matikan transisi sementara
-            updateSlidePosition();
-            setTimeout(() => { // Nyalakan kembali transisi
-                slider.style.transition = 'transform 0.5s ease-in-out';
+            testimonialNextBtn.addEventListener('click', () => {
+                goToNextTestimonial();
+                resetTestimonialAutoSlide();
             });
-        });
 
-        // Inisialisasi slider saat halaman dimuat
-        updateSlidePosition();
-        startAutoSlide(); // Langsung jalankan auto-slide
+            testimonialPrevBtn.addEventListener('click', () => {
+                testimonialCurrentIndex = (testimonialCurrentIndex - 1 + testimonialCount) % testimonialCount;
+                updateTestimonialPosition();
+                resetTestimonialAutoSlide();
+            });
+
+            // Inisialisasi
+            updateTestimonialPosition();
+            startTestimonialAutoSlide();
+        }
     }
 });
