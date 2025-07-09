@@ -44,4 +44,3 @@ Saat ini proyek ini dikelola secara pribadi, namun masukan dan saran selalu dite
 ## 📄 Lisensi
 
 Proyek ini dilisensikan di bawah Lisensi MIT. Lihat file `LICENSE` untuk detailnya.
-*(Tips: Anda bisa membuat file baru bernama LICENSE dan isi dengan template Lisensi MIT jika ingin menjadikannya open source).*
